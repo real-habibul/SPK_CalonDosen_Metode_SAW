@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 16, 2019 at 10:44 AM
+-- Generation Time: Oct 01, 2019 at 01:45 AM
 -- Server version: 10.4.6-MariaDB
--- PHP Version: 7.3.8
+-- PHP Version: 7.3.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,6 +21,47 @@ SET time_zone = "+00:00";
 --
 -- Database: `spk_calondosen`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `calon_pegawai`
+--
+
+CREATE TABLE `calon_pegawai` (
+  `calon_pegawai_id` int(11) NOT NULL,
+  `name` varchar(160) NOT NULL,
+  `usia` int(2) NOT NULL,
+  `pendidikan_terakhir` varchar(50) NOT NULL,
+  `tempat_pendidikan` varchar(150) NOT NULL,
+  `pengalaman_kerja` int(3) NOT NULL,
+  `status_pernikahan` varchar(10) NOT NULL,
+  `jarak` int(3) NOT NULL,
+  `is_active` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `kelompok_kriteria`
+--
+
+CREATE TABLE `kelompok_kriteria` (
+  `kelompok_kriteria_id` int(11) NOT NULL,
+  `name` varchar(200) NOT NULL,
+  `jenis` varchar(100) NOT NULL,
+  `range_1` varchar(50) DEFAULT NULL,
+  `nilai_r1` int(1) DEFAULT NULL,
+  `range_2` varchar(50) DEFAULT NULL,
+  `nilai_r2` int(1) DEFAULT NULL,
+  `range_3` varchar(50) DEFAULT NULL,
+  `nilai_r3` int(1) DEFAULT NULL,
+  `range_4` varchar(50) DEFAULT NULL,
+  `nilai_r4` int(1) DEFAULT NULL,
+  `range_5` varchar(50) DEFAULT NULL,
+  `nilai_r5` int(1) DEFAULT NULL,
+  `is_active` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -47,6 +88,18 @@ INSERT INTO `users` (`users_id`, `username`, `password`, `created_date`) VALUES
 --
 
 --
+-- Indexes for table `calon_pegawai`
+--
+ALTER TABLE `calon_pegawai`
+  ADD PRIMARY KEY (`calon_pegawai_id`);
+
+--
+-- Indexes for table `kelompok_kriteria`
+--
+ALTER TABLE `kelompok_kriteria`
+  ADD PRIMARY KEY (`kelompok_kriteria_id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -55,6 +108,18 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `calon_pegawai`
+--
+ALTER TABLE `calon_pegawai`
+  MODIFY `calon_pegawai_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `kelompok_kriteria`
+--
+ALTER TABLE `kelompok_kriteria`
+  MODIFY `kelompok_kriteria_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`
