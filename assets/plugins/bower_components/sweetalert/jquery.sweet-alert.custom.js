@@ -19,7 +19,12 @@
 
     //Success Message
     $('#sa-success').click(function(){
-        swal("Good job!", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lorem erat eleifend ex semper, lobortis purus sed.", "success")
+        swal("Good Job!!", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lorem erat eleifend ex semper, lobortis purus sed.", "success")
+    });
+
+    //Success Message
+    $('#sa-kelkriteria').click(function(){
+        swal("Selamat!", "Anda berhasil menambahkan 1 Item kedalam data Kelompok Kriteria", "success")
     });
 
     //Warning Message

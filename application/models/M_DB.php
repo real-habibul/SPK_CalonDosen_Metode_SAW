@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class M_DB extends CI_Model {
+class M_db extends CI_Model {
 
 	public function __construct()
 	{
@@ -57,5 +57,5 @@ class M_DB extends CI_Model {
 
 }
 
-/* End of file M_DB.php */
-/* Location: ./application/models/M_DB.php */
+/* End of file M_db.php */
+/* Location: ./application/models/M_db.php */

@@ -49,6 +49,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'welcome';
+$route['default_controller'] = 'Dashboard';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+
+$route['AdmIn/BlankPage'] = 'Dashboard';
+// $route['AdmIn/saveAdministrator'] = 'Dashboard/saveData';
+// $route['AdmIn/statusAdministrator/:any/:any'] = 'Dashboard/updateStatus';
+
+$route['AdmIn/Kelompok-Kriteria'] = 'KelKriteria';
+$route['AdmIn/SKelompok-Kriteria'] = 'KelKriteria/saveData';
+// $route['AdmIn/statusAdministrator/:any/:any'] = 'KelKriteria/updateStatus';
+
+$route['AdmIn/Bobot-Kriteria'] = 'BotKriteria';
+$route['AdmIn/SBobot-Kriteria'] = 'BotKriteria/saveData';
+// $route['AdmIn/statusAdministrator/:any/:any'] = 'Dashboard/updateStatus';
