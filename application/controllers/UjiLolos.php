@@ -5,11 +5,41 @@ class UjiLolos extends CI_Controller {
 
 	public function index()
 	{
-		$data['title'] = 'Bobot Kriteria';
+		$data['title'] = 'UJI Calon Dosen';
 		$data['allData'] = $this->M_db->get_all('bobot_kriteria');
 		$data['dataKelompok'] = $this->M_db->get_all('kelompok_kriteria');
 		$data['content'] = 'UjiLolos/AllData.php';
 		$this->load->view('AdmIn/vTemplete', $data);
+	}
+
+	public function hitung()
+	{
+		//TASK 1
+		$bkTotal = $this->M_db->get_all('bobot_kriteria'); 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		$data['title'] = 'UJI Calon Dosen';
+		$data['allData'] = $this->M_db->get_all('bobot_kriteria');
+		$data['dataKelompok'] = $this->M_db->get_all('kelompok_kriteria');
+		$data['content'] = 'UjiLolos/AllData.php';
+		$this->load->view('AdmIn/vTemplete', $data);	
 	}
 
 }

@@ -36,6 +36,12 @@ class BotKriteria extends CI_Controller {
 		}
 		redirect(base_url().'AdmIn/Bobot-Kriteria');
 	}
+
+	public function updateData($bobot_kriteria_id)
+	{
+		$this->input->get("bobot_kriteria_id");
+		$this->db->trans_begin();
+	}
 }
 
 /* End of file BotKriteria.php */

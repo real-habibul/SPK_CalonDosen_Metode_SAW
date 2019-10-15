@@ -68,6 +68,11 @@ class KelKriteria extends CI_Controller {
 		redirect(base_url().'AdmIn/Kelompok-Kriteria');
 	}
 
+	public function update()
+	{
+		
+	}
+
 }
 
 /* End of file KelKriteria.php */
