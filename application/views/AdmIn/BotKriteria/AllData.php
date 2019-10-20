@@ -65,35 +65,7 @@
                 <div class="white-box">
                     <h3 class="box-title text-center"><?=$title?></h3> 
                     <div class="white-box">
-                            <!-- /.modal -->
-                            <div id="modal-details" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                            <h4 class="modal-title">Details Dari ...</h4> </div>
-                                        <div class="modal-body">
-                                            <form>
-                                                <div class="form-group">
-                                                    <label for="recipient-name" class="control-label">Untuk Kriteria*</label>
-                                                    <input type="text" class="form-control" id="recipient-name"> </div>
-                                                <div class="form-group">
-                                                    <label class="col-sm-12 control-label">Jenis</label>
-                                                    <select class="form-control">
-                                                        <option value="Kurang Dari">Kurang Dari</option>
-                                                        <option value="Harus Sama Dengan">Harus Sama Dengan</option>
-                                                    </select>
-                                                </div>
-                                            </form>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-danger waves-effect waves-light">Save changes</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> 
-                            <!-- /.modal -->
+                            
                             <div id="modal-edit" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
@@ -154,6 +126,51 @@
                                     <td>
                                         <!-- Button trigger modal details -->
                                         <button type="button" class="btn btn-info ti-eye" alt="default" data-toggle="modal" data-target="#modal-details"></button>
+
+                                        <!-- /.modal -->
+                                        <div id="modal-details" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                        <h4 class="modal-title">Details <b><?=$nama?></b> </h4> </div>
+                                                    <div class="modal-body">
+                                                        <form>
+                                                            <div class="form-group">
+                                                                <label class="control-label">Nama :</label>
+                                                                <input type="text" class="form-control" value="<?=$nama?>" disabled>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="control-label">Nilai :</label>
+                                                                <input type="text" class="form-control" value="<?=$nilai?>" disabled>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="control-label">Cost / Benefit :</label>
+                                                                <input type="text" class="form-control" value="<?=$costbenefit?>" disabled>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <table class="table table-hover">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>Range</th>
+                                                                            <th>Nilai</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>50</td>
+                                                                            <td>Sangat Bagik</td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div> 
+                                        <!-- /.modal -->
+
                                         <!-- Button trigger modal edit -->
                                         <button type="button" class="btn btn-default ti-pencil-alt" alt="default" data-toggle="modal" data-target="#modal-edit"></button>
                                     </td>

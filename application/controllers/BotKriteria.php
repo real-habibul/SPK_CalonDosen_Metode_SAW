@@ -40,7 +40,7 @@ class BotKriteria extends CI_Controller {
 	public function updateData($bobot_kriteria_id)
 	{
 		$this->input->get("bobot_kriteria_id");
-		$this->db->trans_begin();
+		$this->db->trans_commit();
 	}
 }
 

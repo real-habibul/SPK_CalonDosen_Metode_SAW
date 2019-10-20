@@ -63,7 +63,7 @@ $route['AdmIn/SKelompok-Kriteria'] = 'KelKriteria/saveData';
 
 $route['AdmIn/Bobot-Kriteria'] = 'BotKriteria';
 $route['AdmIn/SBobot-Kriteria'] = 'BotKriteria/saveData';
-// $route['AdmIn/statusAdministrator/:any/:any'] = 'Dashboard/updateStatus';
+$route['AdmIn/Bobot-Kriteria/:any/'] = 'BotKriteria/detail';
 
 
 $route['AdmIn/Uji-Lolos'] = 'UjiLolos';
