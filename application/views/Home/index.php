@@ -603,7 +603,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <form action="#" class="footer-subscribe">
               <!-- <div class="d-flex mb-5"> -->
                 <div class="row align-items-center">
-                   <p data-aos="fade-up" data-aos-delay="300"><a href="<?=base_url()?>aplication/views/auth.php" class="btn btn-primary py-3 px-5 btn-pill">Login Staff</a></p>
+                   <p data-aos="fade-up" data-aos-delay="300"><a href="<?=base_url()?>index.php/Login" class="btn btn-primary py-3 px-5 btn-pill">Login Staff</a></p>
                 </div>
               <!-- </div> -->
             </form>
