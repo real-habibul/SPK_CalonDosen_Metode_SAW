@@ -15,37 +15,19 @@ class UjiLolos extends CI_Controller {
 	public function hitung()
 	{
 		//TASK 1
-		// $bkTotal = $this->M_db->get_all('bobot_kriteria'); 
 		$this->db->trans_begin();
-		$jumlah = $this->db->query('SELECT SUM(nilai) AS jumlah FROM bobot_kriteria');
-		$jumlah1 = $this->M_db->query('SELECT SUM(nilai) AS jumlah FROM bobot_kriteria');
-		$data['jumlah1'] = $jumlah1;
-
-		if ($this->db->trans_status() === FALSE)
-		{
-			printf("salah");die();
-		    $this->db->trans_rollback();
+		$jumlah=0;
+		$data['bobotKriteria'] = $this->M_db->get_all('bobot_kriteria');
+		foreach ($data['bobotKriteria']->result() as $value) {
+			$jumlah+=$value->nilai;
 		}
-		else
-		{
-	        $this->db->trans_commit();
+		$bobot = [];
+		foreach ($data['bobotKriteria']->result() as $value) {
+			$bobot[$value->bobot_kriteria_id] = $value->nilai / $jumlah;
 		}
-
-
-
-
-
-
-
-
-
-
-
-
 
 		$data['title'] = 'UJI Calon Dosen';
-		$data['allData'] = $this->M_db->get_all('bobot_kriteria');
-		$data['dataKelompok'] = $this->M_db->get_all('kelompok_kriteria');
+		$data['kelompokKriteria'] = $this->M_db->get_all('kelompok_kriteria');
 		$data['content'] = 'UjiLolos/AllData.php';
 		$this->load->view('AdmIn/vTemplete', $data);	
 	}

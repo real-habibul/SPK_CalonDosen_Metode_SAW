@@ -17,38 +17,39 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="white-box">
-                    <h3 class="box-title text-center">Hitung <?=$title?></h3> 
+                    <h3 class="box-title text-center">Tabel Bobot Kriteria</h3> 
                     <div class="table-responsive">
-                        <?php foreach ($jumlah1->result() as $value) {
-                            $jumlah1 = $value->jumlah;
-                        }
-                        ?>
-                        <?=$jumlah1?>
-                        <!-- <table id="newDatatables" class="table table-striped display">
+                        
+                        <table id="Datatables" class="table table-striped display">
                             <thead>
                                 <tr>
-                                    <th>No</th>
+                                    <th style="width: 5%">No</th>
                                     <th>Nama</th>
                                     <th>Nilai</th>
-                                    <th>Kelompok</th>
+                                    <th>Bobot</th>
                                     <th>Cost/Benefit</th>
-                                    <th>More</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php 
+                                $no = 1;
+                                foreach ($bobotKriteria->result() as $value) {
+                                $nama = $value->nama;
+                                $nilai = $value->nilai;
+                                $costbenefit = $value->costbenefit;
+                                ?>
+
                                 <tr>
-                                    <td style="max-width: 10%">1</td>
-                                    <td>A1</td>
-                                    <td>290</td>
-                                    <td>3</td>
-                                    <td>Benefit</td>
-                                    <td>
-                                        <button type="button" class="btn btn-info ti-eye" alt="default" data-toggle="modal" data-target="#modal-details"></button>
-                                        <button type="button" class="btn btn-default ti-pencil-alt" alt="default" data-toggle="modal" data-target="#modal-edit"></button>
-                                    </td>
+                                    <td style="max-width: 10%"><?=$no?></td>
+                                    <td><?=$nama?></td>
+                                    <td><?=$nilai?></td>
+                                    <td><?=$bobot[$value->bobot_kriteria_id]?></td>
+                                    <td><?=$costbenefit?></td>
                                 </tr>
+
+                                <?php $no++; } ?>
                             </tbody>
-                        </table> -->
+                        </table>
                     </div>
                 </div>
             </div>

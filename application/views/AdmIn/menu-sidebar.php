@@ -22,7 +22,7 @@
                             <li><a href="<?=base_url()?>AdmIn/BlankPage"><i class="ti-layout-width-default fa-fw"></i> <span class="hide-menu">Blank Page</span></a></li>
                         </ul>
                     </li>
-                    <li><a href="<?=base_url()?>AdmIn/Uji-Lolos" class="waves-effect"><i class="fa fa-fw fa-circle-o text-success"></i> <span class="hide-menu">Uji Lolos Sistem</span></a></li>
+                    <li><a href="<?=base_url()?>AdmIn/Hitung" class="waves-effect"><i class="fa fa-fw fa-circle-o text-success"></i> <span class="hide-menu">Uji Lolos Sistem</span></a></li>
                 </ul>
             </div>
         </div>
