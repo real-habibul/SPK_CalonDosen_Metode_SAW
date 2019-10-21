@@ -6,7 +6,7 @@
 	 	public function login($username,$password)
 	 	{
 	 		$this->db->select('users_id,username,password,created_date');
-	 		$this->db->from('spk_calondosen');
+	 		$this->db->from('users');
 	 		$this->db->where('username',$username);
 	 		$this->db->where('password', MD5($password));
 	 		$query = $this->db->get();
@@ -19,15 +19,15 @@
 	 	}
 	 
 	 	
-	 	public function insert()
-	 	{
-	 		$data = array(
-	 			'username' => $this->input->post('username'),
-	 			'password' => md5($this->input->post('password')),
-	 			'created_date' => $this->input->post('created_date')
-	 		);
-	 		$this->db->insert('spk_calondosen',$data);
-	 	}
+	 	// public function insert()
+	 	// {
+	 	// 	$data = array(
+	 	// 		'username' => $this->input->post('username'),
+	 	// 		'password' => md5($this->input->post('password')),
+	 	// 		'created_date' => $this->input->post('created_date')
+	 	// 	);
+	 	// 	$this->db->insert('spk_calondosen',$data);
+	 	// }
 	 }
 
 	 

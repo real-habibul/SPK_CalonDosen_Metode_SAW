@@ -17,38 +17,37 @@ ob_start();
  		if ($this->form_validation->run() == FALSE) {
  			$this->load->view('Login_view');
  		} else {
- 			redirect('Home','refresh');
+ 			redirect('AdmIn/BlankPage','refresh');
  		}
  		
  	}
 
- 	public function register()
- 	{
- 		$this->load->library('form_validation');
+ 	// public function register()
+ 	// {
+ 	// 	$this->load->library('form_validation');
 
- 		$this->form_validation->set_rules('username','Username','trim|required');
- 		$this->form_validation->set_rules('password','Password','trim|required');
- 		if ($this->form_validation->run() == FALSE) {
- 			$this->load->view('register_view');
- 		} else {
- 			$this->load->model('spk_calondosen');
- 			$this->spk_calondosen->insert();
- 			redirect('Login','refresh');
- 		}
- 	}
+ 	// 	$this->form_validation->set_rules('username','Username','trim|required');
+ 	// 	$this->form_validation->set_rules('password','Password','trim|required');
+ 	// 	if ($this->form_validation->run() == FALSE) {
+ 	// 		$this->load->view('register_view');
+ 	// 	} else {
+ 	// 		$this->load->model('spk_calondosen');
+ 	// 		$this->spk_calondosen->insert();
+ 	// 		redirect('Login','refresh');
+ 	// 	}
+ 	// }
  	
  	public function cekDb($password)
  	{
- 		$this->load->model('spk_calondosen');
+ 		$this->load->model('user');
  		$username = $this->input->post('username');
- 		$result = $this->spk_calondosen->login($username,$password);
+ 		$result = $this->user->login($username,$password);
  		if($result){
  			$sess_array = array();
  			foreach ($result as $row) {
  				$sess_array = array(
  					'users_id'=>$row->users_id,
- 					'username'=> $row->username,
- 					'level' => $row->level
+ 					'username'=> $row->username
  				);
  				$this->session->set_userdata('logged_in',$sess_array);
  			}

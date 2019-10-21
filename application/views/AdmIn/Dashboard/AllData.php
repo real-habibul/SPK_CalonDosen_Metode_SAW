@@ -84,6 +84,57 @@
                 <!-- End Right sidebar -->
                 <!-- ============================================================== -->
             </div>
+
+            <div class="container-fluid">
+        <div class="row clearfix">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="body">
+                    <table class="table table-striped table-bordered datatables" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Nama Lengkap</th>
+                                <th>Usia</th>
+                                <th>Pendidikan Terakhir</th>
+                                <th>Tempat Pendidikan</th>
+                                <th>Pengalaman Kerja</th>
+                                <th>Status Pernikahan</th>
+                                <th>Jarak</th>
+                                <th class="text-center">status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php $calon_pegawai = $this->db->from('calon_pegawai')->get();?>
+                            <?php $no = 0;foreach($calon_pegawai->result() as $row){ $no++;?>
+                            <tr>
+                                <td><?=$no?></td>
+                                <td><?=$row->name?></td>
+                                <td><?=$row->usia?></td>
+                                <td><?=$row->pendidikan_terakhir?></td>
+                                <td><?=$row->tempat_pendidikan?></td>
+                                <td><?=$row->pengalaman_kerja?></td>
+                                <td><?=$row->status_pernikahan?></td>
+                                <td><?=$row->jarak?></td>
+                                <td class="text-center">
+                                    <?php if($row->is_active==1){?>
+                                        <span class="label label-info">Aktif</span>
+                                    <?php }else{?>
+                                        <span class="label label-danger">Non aktif</span>
+                                    <?php }?>
+                                </td>
+                                
+                            </tr>
+                            <?php }?>
+                        </tbody>
+                    </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>   
+
             <!-- /.container-fluid -->
             <footer class="footer text-center"> 2017 &copy; Ample Admin brought to you by themedesigner.in </footer>
         </div>

@@ -47,7 +47,7 @@
         </nav>
 <div class="container text-center">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <?php echo form_open('login/cekLogin') ?>
+    <?php echo form_open('Login/cekLogin') ?>
     <div class="form-group">
       <legend>Log in </legend>
     </div>
@@ -66,9 +66,9 @@
     <div class="form-group">
       <button type="submit" class="btn btn-primary">Submit</button>
     </div>
-    <div class="form-group">
+    <!-- <div class="form-group">
     <a href="<?php echo base_url('index.php/Login/register') ?>" >Belum Memiliki Akun?</a>
-    </div>
+    </div> -->
   </div>
 </div>
 

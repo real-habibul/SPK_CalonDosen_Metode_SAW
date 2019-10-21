@@ -479,7 +479,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
               <div class="form-group row">
                 <div class="col-md-12">
-                  <input type="text" id="pendidikan_terakhir" class="form-control" placeholder="Pendidikan terakhir">
+                  <select class="form-control" id="pendidikan_terakhir">
+                            <option value="D4">D4</option>
+                            <option value="S1">S1</option>
+                            <option value="S2">S2</option>
+                            <option value="S3">S3</option>
+                        </select>
                 </div>
               </div>
 
@@ -490,7 +495,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </div>
               <div class="form-group row">
                 <div class="col-md-12">
-                  <textarea class="form-control" id="pengalaman_kerja" cols="30" rows="10" placeholder="Pengalaman Kerja"></textarea>
+                  <input type="number" id="pengalaman_kerja" class="form-control" placeholder="Pengalaman Kerja (dalam tahun)">
                 </div>
               </div>
 
@@ -498,7 +503,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                   <div class="form-group row">
                 <div class="col-md-6 mb-3 mb-lg-0">
-                  <input type="text" id="status_pernikahan" class="form-control" placeholder="Status Pernikahan">
+                  <select class="form-control" id="status_pernikahan">
+                            <option value="BELUM">Belum Menikah</option>
+                            <option value="SUDAH">Sudah Menikah</option>
+                        </select>
                 </div>
                 <div class="col-md-6">
                   <input type="number" id="jarak" class="form-control" placeholder="Jarak (dalam KM)">
