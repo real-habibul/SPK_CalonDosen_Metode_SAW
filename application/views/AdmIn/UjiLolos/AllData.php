@@ -19,7 +19,6 @@
                 <div class="white-box">
                     <h3 class="box-title text-center">Tabel Bobot Kriteria</h3> 
                     <div class="table-responsive">
-                        
                         <table id="Datatables" class="table table-striped display">
                             <thead>
                                 <tr>
@@ -46,7 +45,6 @@
                                     <td><?=$bobot[$value->bobot_kriteria_id]?></td>
                                     <td><?=$costbenefit?></td>
                                 </tr>
-
                                 <?php $no++; } ?>
                             </tbody>
                         </table>
@@ -54,6 +52,92 @@
                 </div>
             </div>
         </div>
+        <!-- /tabel bobot kriteria -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="white-box">
+                    <h3 class="box-title text-center">Tabel Calon Pegawai</h3> 
+                    <div class="table-responsive">
+                            <thead>
+                                <tr>
+                                    <th style="width: 5%">No</th>
+                                    <th>Nama</th>
+                                    <th>Usia</th>
+                                    <th>Pendidikan Terakhir</th>
+                                    <th>Pengalaman Kerja</th>
+                                    <th>Status Pernikahan</th>
+                                    <th>Jarak dari Kampus</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php 
+                                $no = 1;
+                                foreach ($calonPegawai->result() as $value) {
+                                $name = $value->name;
+                                $usia = $value->usia;
+                                $pendidikan_terakhir = $value->pendidikan_terakhir;
+                                $pengalaman_kerja = $value->pengalaman_kerja;
+                                $status_pernikahan = $value->status_pernikahan;
+                                $jarak = $value->jarak;
+                                ?>
+                                <tr>
+                                    <td style="max-width: 10%"><?=$no?></td>
+                                    <td><?=$name?></td>
+                                    <td><?=$usia?> Tahun</td>
+                                    <td><?=$pendidikan_terakhir?></td>
+                                    <td><?=$pengalaman_kerja?> Bulan</td>
+                                    <td><?=$status_pernikahan?></td>
+                                    <td><?=$jarak?> KM</td>
+                                </tr>
+                                <?php $no++; } ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /tabel calon pegawai -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="white-box">
+                    <h3 class="box-title text-center">Tabel Normalisasi Data</h3> 
+                    <div class="table-responsive">
+                        <table id="Datatables" class="table table-striped display">
+                            <thead>
+                                <tr>
+                                    <th style="width: 5%">No</th>
+                                    <th>C1</th>
+                                    <th>C2</th>
+                                    <th>C3</th>
+                                    <th>C4</th>
+                                    <th>C5</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php 
+                                $no = 1;
+                                foreach ($bobotKriteria->result() as $value) {
+                                $nama = $value->nama;
+                                $nilai = $value->nilai;
+                                $costbenefit = $value->costbenefit;
+                                ?>
+
+                                <tr>
+                                    <td style="max-width: 10%">A<?=$no?></td>
+                                    <td><?=$nama?></td>
+                                    <td><?=$nilai?></td>
+                                    <td><?=$nilai?></td>
+                                    <td><?=$bobot[$value->bobot_kriteria_id]?></td>
+                                    <td><?=$costbenefit?></td>
+                                </tr>
+                                <?php $no++; } ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /tabel Normalisasi Data -->
     </div>
     <!-- /.container-fluid -->
     <!-- <footer class="footer text-center"> 2017 &copy; Ample Admin brought to you by themedesigner.in </footer> -->
