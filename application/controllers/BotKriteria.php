@@ -8,6 +8,9 @@ class BotKriteria extends CI_Controller {
 		$data['title'] = 'Bobot Kriteria';
 		$data['allData'] = $this->M_db->get_all('bobot_kriteria');
 		$data['dataKelompok'] = $this->M_db->get_all('kelompok_kriteria');
+
+		
+
 		$data['content'] = 'BotKriteria/AllData.php';
 		$this->load->view('AdmIn/vTemplete', $data);
 	}
@@ -37,10 +40,26 @@ class BotKriteria extends CI_Controller {
 		redirect(base_url().'AdmIn/Bobot-Kriteria');
 	}
 
-	public function updateData($bobot_kriteria_id)
+	public function updateData()
 	{
-		$this->input->get("bobot_kriteria_id");
+		$where = array (
+			'bobot_kriteria_id' => $this->input->post("id")
+			);
+
+		$data = array(
+			'nama' => $this->input->post('nama'),
+			'nilai' => $this->input->post('nilai'),
+			'kelompok_kriteria' => $this->input->post('kelompok_kriteria'),
+			'costbenefit' => $this->input->post('costbenefit')
+			// 'modified_by' => $session_user,
+			// 'modified_date' => date('Y-m-d H:i:s')
+			// 'is_active' => 1
+			);
+		// print_r($data);die();
+		$this->M_db->update('bobot_kriteria', $where, $data);
 		$this->db->trans_commit();
+		
+		redirect(base_url().'AdmIn/Bobot-Kriteria');
 	}
 }
 

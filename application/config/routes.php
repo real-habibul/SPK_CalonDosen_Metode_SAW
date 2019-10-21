@@ -63,6 +63,7 @@ $route['AdmIn/SKelompok-Kriteria'] = 'KelKriteria/saveData';
 
 $route['AdmIn/Bobot-Kriteria'] = 'BotKriteria';
 $route['AdmIn/SBobot-Kriteria'] = 'BotKriteria/saveData';
+$route['AdmIn/UBobot-Kriteria'] = 'BotKriteria/updateData';
 $route['AdmIn/Bobot-Kriteria/:any/'] = 'BotKriteria/detail';
 
 
