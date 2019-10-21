@@ -25,6 +25,19 @@ class UjiLolos extends CI_Controller {
 		foreach ($data['bobotKriteria']->result() as $value) {
 			$bobot[$value->bobot_kriteria_id] = $value->nilai / $jumlah;
 		}
+		$data['bobot']=$bobot;
+
+		//TASK 2
+		$data['calonPegawai'] = $this->M_db->get_all('calon_pegawai');
+		
+		//TASK 3
+		$c1 = [];
+		$data['kelompok_kriteria'] = $this->M_db->get_all('kelompok_kriteria');
+		
+		foreach ($data['calonPegawai']->result() as $cp) {
+			$usia = $cp->usia;
+			var_dump($usia);die();
+		}
 
 		$data['title'] = 'UJI Calon Dosen';
 		$data['kelompokKriteria'] = $this->M_db->get_all('kelompok_kriteria');
