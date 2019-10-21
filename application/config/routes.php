@@ -59,11 +59,13 @@ $route['AdmIn/BlankPage'] = 'Dashboard';
 
 $route['AdmIn/Kelompok-Kriteria'] = 'KelKriteria';
 $route['AdmIn/SKelompok-Kriteria'] = 'KelKriteria/saveData';
+$route['AdmIn/UKelompok-Kriteria'] = 'KelKriteria/updateData';
 // $route['AdmIn/statusAdministrator/:any/:any'] = 'KelKriteria/updateStatus';
 
 $route['AdmIn/Bobot-Kriteria'] = 'BotKriteria';
 $route['AdmIn/SBobot-Kriteria'] = 'BotKriteria/saveData';
-// $route['AdmIn/statusAdministrator/:any/:any'] = 'Dashboard/updateStatus';
+$route['AdmIn/UBobot-Kriteria'] = 'BotKriteria/updateData';
+$route['AdmIn/Bobot-Kriteria/:any/'] = 'BotKriteria/detail';
 
 
 $route['AdmIn/Uji-Lolos'] = 'UjiLolos';

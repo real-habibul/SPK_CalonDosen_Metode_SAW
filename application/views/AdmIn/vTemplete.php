@@ -29,12 +29,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link href="<?=path_adm()?>css/style.css" rel="stylesheet">
     <!-- color CSS -->
     <link href="<?=path_adm()?>css/colors/megna-dark.css" id="theme" rel="stylesheet">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
 
     <!-- jQuery -->
     <script src="<?=path_adm_plugin()?>/plugins/bower_components/jquery/dist/jquery.js"></script>
@@ -70,9 +64,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="top-left-part">
                     <!-- Logo -->
                     <a class="logo" href="index.html">
-                        <!-- Logo icon image, you can use font-icon also --><b>
+                        <!-- Logo icon image, you can use font-icon also -->
+                        <b>
                         <!--This is dark logo icon--><img src="<?=path_adm_plugin()?>/plugins/images/admin-logo.png" alt="home" class="dark-logo" /><!--This is light logo icon--><img src="<?=path_adm_plugin()?>/plugins/images/admin-logo-dark.png" alt="home" class="light-logo" />
-                     </b>
+                        </b>
                         <!-- Logo text image you can use text also --><span class="hidden-xs">
                         <!--This is dark logo text--><img src="<?=path_adm_plugin()?>/plugins/images/admin-text.png" alt="home" class="dark-logo" /><!--This is light logo text--><img src="<?=path_adm_plugin()?>/plugins/images/admin-text-dark.png" alt="home" class="light-logo" />
                      </span> </a>

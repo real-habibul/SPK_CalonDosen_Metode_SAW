@@ -63,66 +63,7 @@
             </div>
             <div class="col-md-7">
                 <div class="white-box">
-                    <h3 class="box-title text-center"><?=$title?></h3> 
-                    <div class="white-box">
-                            <!-- /.modal -->
-                            <div id="modal-details" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                            <h4 class="modal-title">Details Dari ...</h4> </div>
-                                        <div class="modal-body">
-                                            <form>
-                                                <div class="form-group">
-                                                    <label for="recipient-name" class="control-label">Untuk Kriteria*</label>
-                                                    <input type="text" class="form-control" id="recipient-name"> </div>
-                                                <div class="form-group">
-                                                    <label class="col-sm-12 control-label">Jenis</label>
-                                                    <select class="form-control">
-                                                        <option value="Kurang Dari">Kurang Dari</option>
-                                                        <option value="Harus Sama Dengan">Harus Sama Dengan</option>
-                                                    </select>
-                                                </div>
-                                            </form>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-danger waves-effect waves-light">Save changes</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> 
-                            <!-- /.modal -->
-                            <div id="modal-edit" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                            <h4 class="modal-title">Modal Content is Responsive</h4> </div>
-                                        <div class="modal-body">
-                                            <form>
-                                                <div class="form-group">
-                                                    <label for="recipient-name" class="control-label">Untuk Kriteria*</label>
-                                                    <input type="text" class="form-control" id="recipient-name"> </div>
-                                                <div class="form-group">
-                                                    <label class="col-sm-12 control-label">Jenis</label>
-                                                    <select class="form-control">
-                                                        <option value="Kurang Dari">Kurang Dari</option>
-                                                        <option value="Harus Sama Dengan">Harus Sama Dengan</option>
-                                                    </select>
-                                                </div>
-                                            </form>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-danger waves-effect waves-light">Save changes</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> 
-
-                        </div>
+                    <h3 class="box-title text-center"><?=$title?></h3>
                     <div class="table-responsive">
                         <table id="newDatatables" class="table table-striped display">
                             <thead>
@@ -153,17 +94,152 @@
                                     <td><?=$costbenefit?></td>
                                     <td>
                                         <!-- Button trigger modal details -->
-                                        <button type="button" class="btn btn-info ti-eye" alt="default" data-toggle="modal" data-target="#modal-details"></button>
+                                        <button type="button" class="btn btn-info ti-eye" alt="default" data-toggle="modal" data-target="#modal-details<?=$id?>"></button>
+
+                                        <div id="modal-details<?=$id?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                        <h4 class="modal-title">Details <b><?=$nama?></b> </h4> </div>
+                                                    <div class="modal-body">
+                                                        <form>
+                                                            <div class="form-group">
+                                                                <label class="control-label">Nama :</label>
+                                                                <input type="text" class="form-control" value="<?=$nama?>" disabled>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="control-label">Nilai :</label>
+                                                                <input type="text" class="form-control" value="<?=$nilai?>" disabled>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="control-label">Cost / Benefit :</label>
+                                                                <input type="text" class="form-control" value="<?=$costbenefit?>" disabled>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <table class="table table-hover">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>Range</th>
+                                                                            <th>Nilai</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <?php
+                                                                            $query = $this->M_db->query("SELECT * FROM kelompok_kriteria WHERE kelompok_kriteria_id = '$id_kelompok'");
+                                                                            foreach ($query->result_array() as $row) {
+                                                                        ?>
+                                                                        <tr>
+                                                                            <td><?=$row['range_1']?></td>
+                                                                            <td><?=$row['nilai_r1']?></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td><?=$row['range_2']?></td>
+                                                                            <td><?=$row['nilai_r2']?></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td><?=$row['range_3']?></td>
+                                                                            <td><?=$row['nilai_r3']?></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td><?=$row['range_4']?></td>
+                                                                            <td><?=$row['nilai_r4']?></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td><?=$row['range_5']?></td>
+                                                                            <td><?=$row['nilai_r5']?></td>
+                                                                        </tr>
+                                                                            <?php } ?>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div> 
+                                        <!-- /.modal -->
+
+
                                         <!-- Button trigger modal edit -->
-                                        <button type="button" class="btn btn-default ti-pencil-alt" alt="default" data-toggle="modal" data-target="#modal-edit"></button>
+                                        <button type="button" class="btn btn-default ti-pencil-alt" alt="default" data-toggle="modal" data-target="#modal-edit<?=$id?>"></button>
+                                        <div id="modal-edit<?=$id?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                    <h4 class="modal-title">Edit Data <?=$nama?></h4> </div>
+                                                <div class="modal-body">
+                                                    <form class="form-material form-horizontal" action="<?=base_url()?>AdmIn/UBobot-Kriteria" method="POST">
+                                                        <div class="form-group">
+                                                            <label class="col-md-12">Nama Bobot Kriteria</label>
+                                                                <input type="text" hidden id="id" name="id" value="<?=$id?>" autocomplete="off" placeholder="ID">
+                                                            <div class="col-md-12">
+                                                                <input type="text" class="form-control form-control-line" id="nama" name="nama" value="<?=$nama?>" autocomplete="off" placeholder="Nama Bobot Kriteria.."> </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-md-12">Nilai</label>
+                                                            <div class="col-md-12">
+                                                                <input type="text" class="form-control form-control-line" id="nilai" value="<?=$nilai?>" name="nilai" autocomplete="off" placeholder="1 ~ 100"> </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-sm-12">Kelompok Kriteria</label>
+                                                            <div class="col-sm-12">
+                                                                <select class="form-control" id="kelompok_kriteria" name="kelompok_kriteria">
+
+                                                                    <?php
+                                                                        $query = $this->M_db->query("SELECT * FROM kelompok_kriteria WHERE kelompok_kriteria_id = '$id_kelompok'");
+                                                                        foreach ($query->result_array() as $row) {
+                                                                    ?>
+                                                                    
+                                                                    <option value="<?=$id_kelompok?>">(ganti jika ada perubahan)</option>
+                                                                    
+                                                                    <?php foreach ($dataKelompok->result() as $value) {
+                                                                        $id_kelompok2 = $value->kelompok_kriteria_id;
+                                                                        $nama_kelompok2 = $value->name;
+                                                                    ?>
+                                                                    <option value="<?=$id_kelompok2?>"><?=$nama_kelompok2?></option>
+
+                                                                    <?php }}  ?>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-sm-12">Cost/Benefitz</label>
+                                                            <div class="col-sm-12">
+                                                                <select class="form-control" id="costbenefit" name="costbenefit">
+                                                                    <option value="<?=$costbenefit?>">(ganti jika ada perubahan)</option>
+                                                                    <option value="Benefit">BENEFIT</option>
+                                                                    <option value="Cost">COST</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group text-center" style="margin-top: 15px">
+                                                            <button type="submit" class="btn btn-success" alt="alert" id="sa-success">Update!</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /.modal -->
+                                        
                                     </td>
                                 </tr>
                                 <?php $no++; }   ?>
+
+                                
+
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
+            <!-- <div class="col-md-12">
+                <div class="white-box">
+                </div>
+            </div> -->
         </div>
     </div>
     <!-- /.container-fluid -->

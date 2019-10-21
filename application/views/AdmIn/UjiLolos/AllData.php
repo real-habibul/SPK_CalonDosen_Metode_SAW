@@ -19,7 +19,12 @@
                 <div class="white-box">
                     <h3 class="box-title text-center">Hitung <?=$title?></h3> 
                     <div class="table-responsive">
-                        <table id="newDatatables" class="table table-striped display">
+                        <?php foreach ($jumlah1->result() as $value) {
+                            $jumlah1 = $value->jumlah;
+                        }
+                        ?>
+                        <?=$jumlah1?>
+                        <!-- <table id="newDatatables" class="table table-striped display">
                             <thead>
                                 <tr>
                                     <th>No</th>
@@ -31,15 +36,6 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <!-- <?php
-                                    $no = 1; 
-                                    foreach ($allData->result() as $value) {
-                                    $id = $value->bobot_kriteria_id;
-                                    $nama = $value->nama;
-                                    $nilai = $value->nilai;
-                                    $id_kelompok = $value->kelompok_kriteria;
-                                    $costbenefit = $value->costbenefit;
-                                ?> -->
                                 <tr>
                                     <td style="max-width: 10%">1</td>
                                     <td>A1</td>
@@ -47,15 +43,12 @@
                                     <td>3</td>
                                     <td>Benefit</td>
                                     <td>
-                                        <!-- Button trigger modal details -->
                                         <button type="button" class="btn btn-info ti-eye" alt="default" data-toggle="modal" data-target="#modal-details"></button>
-                                        <!-- Button trigger modal edit -->
                                         <button type="button" class="btn btn-default ti-pencil-alt" alt="default" data-toggle="modal" data-target="#modal-edit"></button>
                                     </td>
                                 </tr>
-                                <!-- <?php $no++; }   ?> -->
                             </tbody>
-                        </table>
+                        </table> -->
                     </div>
                 </div>
             </div>
