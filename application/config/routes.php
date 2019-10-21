@@ -59,6 +59,7 @@ $route['AdmIn/BlankPage'] = 'Dashboard';
 
 $route['AdmIn/Kelompok-Kriteria'] = 'KelKriteria';
 $route['AdmIn/SKelompok-Kriteria'] = 'KelKriteria/saveData';
+$route['AdmIn/UKelompok-Kriteria'] = 'KelKriteria/updateData';
 // $route['AdmIn/statusAdministrator/:any/:any'] = 'KelKriteria/updateStatus';
 
 $route['AdmIn/Bobot-Kriteria'] = 'BotKriteria';

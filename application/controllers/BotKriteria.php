@@ -8,9 +8,6 @@ class BotKriteria extends CI_Controller {
 		$data['title'] = 'Bobot Kriteria';
 		$data['allData'] = $this->M_db->get_all('bobot_kriteria');
 		$data['dataKelompok'] = $this->M_db->get_all('kelompok_kriteria');
-
-		
-
 		$data['content'] = 'BotKriteria/AllData.php';
 		$this->load->view('AdmIn/vTemplete', $data);
 	}
@@ -42,6 +39,7 @@ class BotKriteria extends CI_Controller {
 
 	public function updateData()
 	{
+		$this->db->trans_begin();
 		$where = array (
 			'bobot_kriteria_id' => $this->input->post("id")
 			);
@@ -58,7 +56,7 @@ class BotKriteria extends CI_Controller {
 		// print_r($data);die();
 		$this->M_db->update('bobot_kriteria', $where, $data);
 		$this->db->trans_commit();
-		
+
 		redirect(base_url().'AdmIn/Bobot-Kriteria');
 	}
 }
