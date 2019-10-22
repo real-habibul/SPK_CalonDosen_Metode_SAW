@@ -58,6 +58,7 @@
                 <div class="white-box">
                     <h3 class="box-title text-center">Tabel Calon Pegawai</h3> 
                     <div class="table-responsive">
+                        <table id="Datatables" class="table table-striped display">
                             <thead>
                                 <tr>
                                     <th style="width: 5%">No</th>
@@ -116,21 +117,25 @@
                             <tbody>
                                 <?php 
                                 $no = 1;
-                                foreach ($bobotKriteria->result() as $value) {
-                                $nama = $value->nama;
-                                $nilai = $value->nilai;
-                                $costbenefit = $value->costbenefit;
+                                foreach ($calonPegawai->result() as $value) {
+                                $name = $value->name;
+                                $usia = $value->usia;
+                                $pendidikan_terakhir = $value->pendidikan_terakhir;
+                                $pengalaman_kerja = $value->pengalaman_kerja;
+                                $status_pernikahan = $value->status_pernikahan;
+                                $jarak = $value->jarak;
                                 ?>
 
                                 <tr>
+
                                     <td style="max-width: 10%">A<?=$no?></td>
-                                    <td><?=$nama?></td>
-                                    <td><?=$nilai?></td>
-                                    <td><?=$nilai?></td>
-                                    <td><?=$bobot[$value->bobot_kriteria_id]?></td>
-                                    <td><?=$costbenefit?></td>
+                                    <td><?=$name?></td>
+                                    <td><?=$usia?></td>
+                                    <td><?=$pendidikan_terakhir?></td>
+                                    <td><?=$status_pernikahan?></td>
+                                    <td><?=$jarak?></td>
                                 </tr>
-                                <?php $no++; } ?>
+                                <?php $no++; }  ?>
                             </tbody>
                         </table>
                     </div>

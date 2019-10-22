@@ -164,66 +164,65 @@
                                         <!-- Button trigger modal edit -->
                                         <button type="button" class="btn btn-default ti-pencil-alt" alt="default" data-toggle="modal" data-target="#modal-edit<?=$id?>"></button>
                                         <div id="modal-edit<?=$id?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                                    <h4 class="modal-title">Edit Data <?=$nama?></h4> </div>
-                                                <div class="modal-body">
-                                                    <form class="form-material form-horizontal" action="<?=base_url()?>AdmIn/UBobot-Kriteria" method="POST">
-                                                        <div class="form-group">
-                                                            <label class="col-md-12">Nama Bobot Kriteria</label>
-                                                                <input type="text" hidden id="id" name="id" value="<?=$id?>" autocomplete="off" placeholder="ID">
-                                                            <div class="col-md-12">
-                                                                <input type="text" class="form-control form-control-line" id="nama" name="nama" value="<?=$nama?>" autocomplete="off" placeholder="Nama Bobot Kriteria.."> </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label class="col-md-12">Nilai</label>
-                                                            <div class="col-md-12">
-                                                                <input type="text" class="form-control form-control-line" id="nilai" value="<?=$nilai?>" name="nilai" autocomplete="off" placeholder="1 ~ 100"> </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label class="col-sm-12">Kelompok Kriteria</label>
-                                                            <div class="col-sm-12">
-                                                                <select class="form-control" id="kelompok_kriteria" name="kelompok_kriteria">
-
-                                                                    <?php
-                                                                        $query = $this->M_db->query("SELECT * FROM kelompok_kriteria WHERE kelompok_kriteria_id = '$id_kelompok'");
-                                                                        foreach ($query->result_array() as $row) {
-                                                                    ?>
-                                                                    
-                                                                    <option value="<?=$id_kelompok?>">(ganti jika ada perubahan)</option>
-                                                                    
-                                                                    <?php foreach ($dataKelompok->result() as $value) {
-                                                                        $id_kelompok2 = $value->kelompok_kriteria_id;
-                                                                        $nama_kelompok2 = $value->name;
-                                                                    ?>
-                                                                    <option value="<?=$id_kelompok2?>"><?=$nama_kelompok2?></option>
-
-                                                                    <?php }}  ?>
-                                                                </select>
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                        <h4 class="modal-title">Edit Data <?=$nama?></h4> </div>
+                                                    <div class="modal-body">
+                                                        <form class="form-material form-horizontal" action="<?=base_url()?>AdmIn/UBobot-Kriteria" method="POST">
+                                                            <div class="form-group">
+                                                                <label class="col-md-12">Nama Bobot Kriteria</label>
+                                                                    <input type="text" hidden id="id" name="id" value="<?=$id?>" autocomplete="off" placeholder="ID">
+                                                                <div class="col-md-12">
+                                                                    <input type="text" class="form-control form-control-line" id="nama" name="nama" value="<?=$nama?>" autocomplete="off" placeholder="Nama Bobot Kriteria.."> </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label class="col-sm-12">Cost/Benefitz</label>
-                                                            <div class="col-sm-12">
-                                                                <select class="form-control" id="costbenefit" name="costbenefit">
-                                                                    <option value="<?=$costbenefit?>">(ganti jika ada perubahan)</option>
-                                                                    <option value="Benefit">BENEFIT</option>
-                                                                    <option value="Cost">COST</option>
-                                                                </select>
+                                                            <div class="form-group">
+                                                                <label class="col-md-12">Nilai</label>
+                                                                <div class="col-md-12">
+                                                                    <input type="text" class="form-control form-control-line" id="nilai" value="<?=$nilai?>" name="nilai" autocomplete="off" placeholder="1 ~ 100"> </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="form-group text-center" style="margin-top: 15px">
-                                                            <button type="submit" class="btn btn-success" alt="alert" id="sa-success">Update!</button>
-                                                        </div>
-                                                    </form>
+                                                            <div class="form-group">
+                                                                <label class="col-sm-12">Kelompok Kriteria</label>
+                                                                <div class="col-sm-12">
+                                                                    <select class="form-control" id="kelompok_kriteria" name="kelompok_kriteria">
+
+                                                                        <?php
+                                                                            $query = $this->M_db->query("SELECT * FROM kelompok_kriteria WHERE kelompok_kriteria_id = '$id_kelompok'");
+                                                                            foreach ($query->result_array() as $row) {
+                                                                        ?>
+                                                                        
+                                                                        <option value="<?=$id_kelompok?>">(ganti jika ada perubahan)</option>
+                                                                        
+                                                                        <?php foreach ($dataKelompok->result() as $value) {
+                                                                            $id_kelompok2 = $value->kelompok_kriteria_id;
+                                                                            $nama_kelompok2 = $value->name;
+                                                                        ?>
+                                                                        <option value="<?=$id_kelompok2?>"><?=$nama_kelompok2?></option>
+
+                                                                        <?php }}  ?>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="col-sm-12">Cost/Benefitz</label>
+                                                                <div class="col-sm-12">
+                                                                    <select class="form-control" id="costbenefit" name="costbenefit">
+                                                                        <option value="<?=$costbenefit?>">(ganti jika ada perubahan)</option>
+                                                                        <option value="Benefit">BENEFIT</option>
+                                                                        <option value="Cost">COST</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group text-center" style="margin-top: 15px">
+                                                                <button type="submit" class="btn btn-success" alt="alert" id="sa-success">Update!</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <!-- /.modal -->
+                                        <!-- /.modal -->
                                         
                                     </td>
                                 </tr>

@@ -154,7 +154,60 @@
                                         </div> 
                                         <!-- /.modal -->
                                         <!-- Button trigger modal edit -->
-                                        <button type="button" class="btn btn-default ti-pencil-alt" alt="default" data-toggle="modal" data-target="#modal-edit"></button>
+                                        <button type="button" class="btn btn-default ti-pencil-alt" alt="default" data-toggle="modal" data-target="#modal-edit<?=$id?>"></button>
+                                        <div id="modal-edit<?=$id?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                        <h4 class="modal-title">Edit Data <?=$name?></h4> </div>
+                                                    <div class="modal-body">
+                                                        <form class="form-material form-horizontal" action="<?=base_url()?>AdmIn/UKelompok-Kriteria" method="POST">
+                                                            <div class="form-group">
+                                                                <label class="col-md-12">Untuk Kriteria</label>
+                                                                <input type="text" hidden id="id" name="id" value="<?=$id?>" autocomplete="off" placeholder="ID">
+                                                                <div class="col-md-12">
+                                                                    <input type="text" class="form-control form-control-line" id="name" name="name" autocomplete="off" value="<?=$name?>" placeholder="Untuk kriteria bobot..."> </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="col-sm-12">Jenis</label>
+                                                                <div class="col-sm-12">
+                                                                    <select class="form-control" id="jenis" name="jenis">
+                                                                        <option value="<?=$jenis?>"><?=$jenis?></option>
+                                                                        <option value="Kurang Dari">Kurang Dari</option>
+                                                                        <option value="Harus Sama Dengan">Harus Sama Dengan</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <?php for ($i = 1; $i <= 5 ; $i++) { ?>
+                                                            <div class="form-group" style="margin-bottom: -5px; margin-top: -5px;">
+                                                                <div class="col-md-3" style="margin-top: 12px;">
+                                                                    <label> Aturan Ke <?=$i?></label>
+                                                                </div>
+                                                                <div class="col-md-5">
+                                                                    <input type="text" id="range_<?=$i?>" name="range_<?=$i?>" value="<?=$row['range_'.$i]?>" class="form-control form-control-line"> 
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <select id="nilai_r<?=$i?>" name="nilai_r<?=$i?>" class="form-control">
+                                                                        <option value="<?=$row['nilai_r'.$i]?>">(ganti jika ada perubahan)</option>
+                                                                        <option value="5">Sangat Baik</option>
+                                                                        <option value="4">Baik</option>
+                                                                        <option value="3">Cukup</option>
+                                                                        <option value="2">Kurang</option>
+                                                                        <option value="1">Tidak Baik</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <?php } ?>
+                                                            <div class="form-group text-center" style="margin-top: 15px">
+                                                                <button type="submit" class="btn btn-success" alt="alert" id="sa-success">Update!</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- /.modal -->
                                     </td>
                                 </tr>
                                 <?php $no++; }   ?>

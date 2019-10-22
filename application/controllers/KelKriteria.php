@@ -118,7 +118,7 @@ class KelKriteria extends CI_Controller {
 			'is_active' => 1
 			);
 
-		// print_r($data);die();
+		// print_r($where);die();
 		$this->M_db->update('kelompok_kriteria', $where, $data);
 		$this->db->trans_commit();
 
