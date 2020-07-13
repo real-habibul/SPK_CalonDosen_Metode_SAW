@@ -352,7 +352,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="teacher text-center">
               <img src="<?=path_adm_plugin()?>/images/person_2.jpg" alt="Image" class="img-fluid w-50 rounded-circle mx-auto mb-4">
               <div class="py-2">
-                <h3 class="text-black">Ferdiana</h3>
+                <h3 class="text-black">Hanif Luhur</h3>
                 <p class="position">Staff Kepegawaian</p>
                 <p>081789987789</p>
               </div>
@@ -363,7 +363,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="teacher text-center">
               <img src="<?=path_adm_plugin()?>/images/person_3.jpg" alt="Image" class="img-fluid w-50 rounded-circle mx-auto mb-4">
               <div class="py-2">
-                <h3 class="text-black">Bu Meyti</h3>
+                <h3 class="text-black">Muhammad Abdan</h3>
                 <p class="position">Staff Administrasi</p>
                 <p>083123456765</p>
               </div>

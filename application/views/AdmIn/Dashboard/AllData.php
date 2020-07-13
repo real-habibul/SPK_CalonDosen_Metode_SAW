@@ -13,15 +13,15 @@
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
-                <div class="row">
+                <!-- <div class="row">
                     <div class="col-md-12">
                         <div class="white-box">
-                            <h3 class="box-title">Blank Starter page</h3> 
+                            <h3 class="box-title">Uji Data</h3> 
                             <a href="<?=base_url()?>AdmIn/Hitung" class="fcbtn btn btn-lg btn-success btn-outline btn-1e">Hitung</a>
 
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <!-- ============================================================== -->
                 <!-- Right sidebar -->
                 <!-- ============================================================== -->

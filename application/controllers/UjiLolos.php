@@ -23,8 +23,9 @@ class UjiLolos extends CI_Controller {
 		}
 		$bobot = [];
 		foreach ($data['bobotKriteria']->result() as $value) {
-			$bobot[$value->bobot_kriteria_id] = $value->nilai / $jumlah;
+			$bobot[$value->kelompok_kriteria] = $value->nilai / $jumlah;
 		}
+
 		$data['bobot']=$bobot;
 
 		//TASK 2
@@ -33,67 +34,152 @@ class UjiLolos extends CI_Controller {
 		//TASK 3
 		$data['kelompok_kriteria'] = $this->M_db->get_all('kelompok_kriteria');
 	
-		$bk = [];
-		$cp = [];
-		$kk = [];
-		$normalisasi = [];
-		foreach ($data['bobotKriteria']->result() as $bk) {
-			$bk_nama[] = $bk->nama;
-            $bk_nilai[] = $bk->nilai;
-            $bk_kelompok_kriteria[] = $bk->kelompok_kriteria;
-            $bk_costbenefit[] = $bk->costbenefit;
-		}
-		foreach ($data['calonPegawai']->result() as $cp) {
-			$cp_name[] = $cp->name;
-	        $cp_usia[] = $cp->usia;
-	        $cp_pendidikan_terakhir[] = $cp->pendidikan_terakhir;
-	        $cp_pengalaman_kerja[] = $cp->pengalaman_kerja;
-	        $cp_status_pernikahan[] = $cp->status_pernikahan;
-	        $cp_jarak[] = $cp->jarak;
-		}
+		
+		$maxUsia=0;$maxPendidikan=0;$maxKerja=0;$minNikah=80000;$minJarak=80000;
 		foreach ($data['kelompok_kriteria']->result() as $kk) {
-			$kk_id[] = (int)$kk->kelompok_kriteria_id;
-			$kk_name = $kk->name;
-			$kk_jenis = $kk->jenis;
-			$kk_r1 = (int)$kk->range_1;
-			$kk_r2 = (int)$kk->range_2;
-			$kk_r3 = (int)$kk->range_3;
-			$kk_r4 = (int)$kk->range_4;
-			$kk_r5 = (int)$kk->range_5;
-			$kk_n1 = (int)$kk->nilai_r1;
-			$kk_n2 = (int)$kk->nilai_r2;
-			$kk_n3 = (int)$kk->nilai_r3;
-			$kk_n4 = (int)$kk->nilai_r4;
-			$kk_n5 = (int)$kk->nilai_r5;
+			foreach ($data['calonPegawai']->result() as $value) {
 
-			//TODO
-			//cek bk_kelompok_kriteria == kk_id
-		print_r($bk_kelompok_kriteria);die();
-			if ($bk_kelompok_kriteria == 1) {
-			//jika Usia dengan id 1 (Usia)
-			
-				if ($kk_id == 1) {
-				//jika kelompok kriteria = 1 (Usia) 
-					if ($cp_usia <= $kk_r1) {
-						$cp_usia == $kk_n1;
-					} 
-					elseif ($cp_usia <= $kk_r2) {
-						$cp_usia == $kk_n2;
-					} 
-					elseif ($cp_usia <= $kk_r3) {
-						$cp_usia == $kk_n3;
-					} 
-					elseif ($cp_usia <= $kk_r4) {
-						$cp_usia == $kk_n4;
-					} 
-					else {
-						$cp_usia == $kk_n5;
+				if($kk->kolom == "usia"){
+					if($value->usia < $kk->range_1){
+						$normalisasi[$value->name][$kk->kolom] = $kk->nilai_r1;
+					}else if($value->usia < $kk->range_2){
+						$normalisasi[$value->name][$kk->kolom] = $kk->nilai_r2;
+
+					}else if($value->usia < $kk->range_3){
+						$normalisasi[$value->name][$kk->kolom] = $kk->nilai_r3;
+
+					}else if($value->usia < $kk->range_4){
+						$normalisasi[$value->name][$kk->kolom] = $kk->nilai_r4;
+
+					}else{
+						$normalisasi[$value->name][$kk->kolom] = $kk->nilai_r5;
+
+					}
+
+					if($maxUsia<$normalisasi[$value->name][$kk->kolom]){
+						$maxUsia=$normalisasi[$value->name][$kk->kolom];
+					}
+
+				}else if($kk->kolom == "pendidikan_terakhir" ){
+					if($value->pendidikan_terakhir == $kk->range_1){
+						$normalisasi[$value->name][$kk->kolom] = $kk->nilai_r1;
+					}else{
+						$normalisasi[$value->name][$kk->kolom] = $kk->nilai_r2;
+					}
+					if($maxPendidikan<$normalisasi[$value->name][$kk->kolom]){
+						$maxPendidikan=$normalisasi[$value->name][$kk->kolom];
+					}
+			}else if($kk->kolom == "pengalaman_kerja" ){
+					if($value->pengalaman_kerja <= $kk->range_1){
+						$normalisasi[$value->name][$kk->kolom] = $kk->nilai_r1;
+					}else if($value->pengalaman_kerja <= $kk->range_2){
+						$normalisasi[$value->name][$kk->kolom] = $kk->nilai_r2;
+
+					}else if($value->pengalaman_kerja <= $kk->range_3){
+						$normalisasi[$value->name][$kk->kolom] = $kk->nilai_r3;
+
+					}else if($value->pengalaman_kerja <= $kk->range_4){
+						$normalisasi[$value->name][$kk->kolom] = $kk->nilai_r4;
+
+					}else{
+						$normalisasi[$value->name][$kk->kolom] = $kk->nilai_r5;
+
+					}
+
+					if($maxKerja<$normalisasi[$value->name][$kk->kolom]){
+						$maxKerja=$normalisasi[$value->name][$kk->kolom];
+					}
+
+				}else if($kk->kolom == "status_pernikahan" ){
+					if($value->status_pernikahan == $kk->range_1){
+						$normalisasi[$value->name][$kk->kolom] = $kk->nilai_r1;
+					}else{
+						$normalisasi[$value->name][$kk->kolom] = $kk->nilai_r2;
+
+					}
+
+					if($minNikah>$normalisasi[$value->name][$kk->kolom]){
+						$minNikah=$normalisasi[$value->name][$kk->kolom];
+					}
+					
+				}else if($kk->kolom == "jarak" ){
+					if($value->jarak <= $kk->range_1){
+						$normalisasi[$value->name][$kk->kolom] = $kk->nilai_r1;
+					}else if($value->jarak <= $kk->range_2){
+						$normalisasi[$value->name][$kk->kolom] = $kk->nilai_r2;
+
+					}else if($value->jarak <= $kk->range_3){
+						$normalisasi[$value->name][$kk->kolom] = $kk->nilai_r3;
+
+					}else if($value->jarak <= $kk->range_4){
+						$normalisasi[$value->name][$kk->kolom] = $kk->nilai_r4;
+
+					}else{
+						$normalisasi[$value->name][$kk->kolom] = $kk->nilai_r5;
+
+					}
+
+					if($minJarak>$normalisasi[$value->name][$kk->kolom]){
+						$minJarak=$normalisasi[$value->name][$kk->kolom];
 					}
 				}
 			}
 		}
 
+		foreach ($data['kelompok_kriteria']->result() as $kk) {
+			foreach ($data['calonPegawai']->result() as $value) {
+
+				if($kk->kolom == "usia"){
+				
+					$apaya[$value->name][$kk->kolom]=$normalisasi[$value->name][$kk->kolom]/$maxUsia;
+					
+
+				}else if($kk->kolom == "pendidikan_terakhir" ){
+					$apaya[$value->name][$kk->kolom]=$normalisasi[$value->name][$kk->kolom]/$maxPendidikan;
+					
+			}else if($kk->kolom == "pengalaman_kerja" ){
+					$apaya[$value->name][$kk->kolom]=$normalisasi[$value->name][$kk->kolom]/$maxKerja;
+					
+
+				}else if($kk->kolom == "status_pernikahan" ){
+					$apaya[$value->name][$kk->kolom]=$minNikah/$normalisasi[$value->name][$kk->kolom];
+					
+					
+				}else if($kk->kolom == "jarak" ){
+					$apaya[$value->name][$kk->kolom]=$minJarak/$normalisasi[$value->name][$kk->kolom];
+					
+				}
+			}
+		}
+
+	
+
+
+		$v=[];
+		foreach ($data['calonPegawai']->result() as $kk) {
+			$v[$kk->name]=0;
+		}
+
+			foreach ($data['calonPegawai']->result() as $value) {
+					foreach ($data['kelompok_kriteria']->result() as $kk) {
+			$v[$value->name]+=$apaya[$value->name][$kk->kolom]*$bobot[$kk->kelompok_kriteria_id];
+                }
+
+				// 
+			
+
+			
+		}
+
+		// $data['bobot']=$bobot;
+
+
+
 		$data['normalisasi']=$normalisasi;
+		$data['apaya']=$apaya;
+		$data['v']=$v;
+
+	
 
 
 		$data['title'] = 'UJI Calon Dosen';

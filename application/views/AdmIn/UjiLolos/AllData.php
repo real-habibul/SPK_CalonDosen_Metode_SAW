@@ -124,16 +124,17 @@
                                 $pengalaman_kerja = $value->pengalaman_kerja;
                                 $status_pernikahan = $value->status_pernikahan;
                                 $jarak = $value->jarak;
+
                                 ?>
 
                                 <tr>
 
                                     <td style="max-width: 10%">A<?=$no?></td>
-                                    <td><?=$name?></td>
-                                    <td><?=$usia?></td>
-                                    <td><?=$pendidikan_terakhir?></td>
-                                    <td><?=$status_pernikahan?></td>
-                                    <td><?=$jarak?></td>
+                                    <td><?=$normalisasi[$value->name]['usia']?></td>
+                                    <td><?=$normalisasi[$value->name]['pendidikan_terakhir']?></td>
+                                    <td><?=$normalisasi[$value->name]['pengalaman_kerja']?></td>
+                                    <td><?=$normalisasi[$value->name]['status_pernikahan']?></td>
+                                    <td><?=$normalisasi[$value->name]['jarak']?></td>
                                 </tr>
                                 <?php $no++; }  ?>
                             </tbody>
@@ -143,6 +144,90 @@
             </div>
         </div>
         <!-- /tabel Normalisasi Data -->
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="white-box">
+                    <h3 class="box-title text-center">Di Normalisasikan</h3> 
+                    <div class="table-responsive">
+                        <table id="Datatables" class="table table-striped display">
+                            <thead>
+                                <tr>
+                                    <th style="width: 5%">No</th>
+                                    <th>C1</th>
+                                    <th>C2</th>
+                                    <th>C3</th>
+                                    <th>C4</th>
+                                    <th>C5</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php 
+                                $no = 1;
+                                foreach ($calonPegawai->result() as $value) {
+                                $name = $value->name;
+                                $usia = $value->usia;
+                                $pendidikan_terakhir = $value->pendidikan_terakhir;
+                                $pengalaman_kerja = $value->pengalaman_kerja;
+                                $status_pernikahan = $value->status_pernikahan;
+                                $jarak = $value->jarak;
+
+                                ?>
+
+                                <tr>
+
+                                    <td style="max-width: 10%">A<?=$no?></td>
+                                    <td><?=$apaya[$value->name]['usia']?></td>
+                                    <td><?=$apaya[$value->name]['pendidikan_terakhir']?></td>
+                                    <td><?=$apaya[$value->name]['pengalaman_kerja']?></td>
+                                    <td><?=$apaya[$value->name]['status_pernikahan']?></td>
+                                    <td><?=$apaya[$value->name]['jarak']?></td>
+                                </tr>
+                                <?php $no++; }  ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="white-box">
+                    <h3 class="box-title text-center">Tabel Hasil Faktor Ternormalisasi</h3> 
+                    <div class="table-responsive">
+                        <table id="Datatables" class="table table-striped display">
+                            <thead>
+                                <tr>
+                                    <th style="width: 5%;text-align: center;">No</th>
+                                    <th style="text-align: center;">Nama</th>
+                                    <th style="text-align: center;">Hasil</th>
+                                    <!-- <th>C2</th> -->
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php 
+                                $no = 1;
+                                foreach ($calonPegawai->result() as $value) {
+                                ?>
+
+                                <tr>
+                                    <td style="max-width: 5%;text-align: center;"><?=$no?></td>
+                                    <td style="text-align: center;"><?=$value->name?></td>
+                                    <td style="text-align: center;"><?=$v[$value->name]?></td>
+                                    
+
+                                    
+                                </tr>
+                                <?php $no++; } ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <!-- /.container-fluid -->
     <!-- <footer class="footer text-center"> 2017 &copy; Ample Admin brought to you by themedesigner.in </footer> -->
